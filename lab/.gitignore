@@ -1,0 +1,4 @@
+!exercise_01
+!exercise_01/*.cpp
+!exercise_01/*.cpp.back
+!exercise_01/CMakeLists.txt
