@@ -1,0 +1,275 @@
+\documentclass[8pt,a4paper,fleqn]{article}
+\usepackage{extsizes}
+\usepackage[left=25mm,right=25mm,top=30mm,bottom=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,mathtools}
+\usepackage{dsfont}
+\usepackage{multicol}
+\usepackage{times}
+
+\newcommand\setComplex{\mathds{C}}
+\newcommand\setReal{\mathds{R}}
+
+\begin{document}
+  \hrule
+  \begin{center}
+  \huge \textbf{Algorithm Engineering: Gliederung}
+  \end{center}
+  \bigskip
+  {\large \begin{minipage}[c]{0.4\textwidth}\flushleft Markus Pawellek \\ markuspawellek@gmail.com\end{minipage} \hfill \begin{minipage}[c]{0.4\textwidth}\flushright\today\end{minipage}}
+  \medskip
+  \hrule
+  \bigskip
+
+  \begin{multicols}{2}
+  \section{C++-Basics} % (fold)
+  \label{sec:c_basics}
+  \begin{itemize}
+    \item use C++ Reference (cppreference.com) and the official standard
+    \item C++ is based on different paradigms
+    \item use cmake to organize projects
+    \item use \texttt{nullptr} instead of \texttt{NULL}
+    \item C++ random number generation
+    \item prefer \texttt{std::cout} over \texttt{std::printf}
+    \item include headers that you are using and no headers you are not using
+    \item do not write code you do not use, make everything as simple as possible
+    \item automize the processes using tools like clang-tidy, clang-format, cpplint, etc.
+    \item code is written for humans not for the computer
+    \item use Google C++ style guide
+    \item do not use variable-length arrays
+    \item measuring time
+    \item read arguments from the command line
+    \item avoid using \texttt{unsigned}-qualifier
+    \item avoid manually managing memory with \texttt{new} and \texttt{delete}
+    \item rely on RAII-principle
+    \item prefer \texttt{enum class} over \texttt{enum}
+    \item use \texttt{constexpr} instead of \texttt{enum}
+    \item pass an argument by \texttt{const \&}
+    \item for readability one declaration per line
+    \item for teamwork everything should be written in English with ASCII-characters
+  \end{itemize}
+  % section c_basics (end)
+
+  \section{Motivation} % (fold)
+  \label{sec:motivation}
+  \begin{itemize}
+    \item worst-case behavior and discrepancies between theory and practice
+    \item cycle of development and algorithm engineering
+    \item What is algorithm engineering?
+    \item Why Algorithm Engineering?
+    \item Experiment with Algorithms
+    \item Paths to Glory
+    \item Engineering Aspects
+    \item Robert Pike Rules
+    \item Unix Philosophy
+  \end{itemize}
+  % section motivation (end)
+
+  \section{Version Control with Git} % (fold)
+  \label{sec:version_control_with_git}
+  \begin{itemize}
+    \item Distributed Version Control with Git
+    \item How Git stores Data
+    \item Interacting with Git
+    \item Creating a repository
+    \item Adding content
+    \item Status
+    \item Showing Modifications
+    \item Committing
+    \item Commit Message
+    \item Unstaging
+    \item Untracking content
+    \item Checkout
+    \item Branching
+    \item Merging
+    \item Branching and Merging
+    \item Commit History
+    \item Tagging
+    \item Interact with Remote Repositories
+    \item Managing remote repositories
+    \item cloning a repository
+    \item fetching from remote repositories
+    \item Git reference
+  \end{itemize}
+  % section version_control_with_git (end)
+
+  \section{Building Software} % (fold)
+  \label{sec:building_software}
+  \begin{itemize}
+    \item configure, build and install
+    \item guidelines for building software
+    \item make and makefiles
+    \item autotools
+  \end{itemize}
+  % section building_software (end)
+
+  \section{CMake} % (fold)
+  \label{sec:cmake}
+  \begin{itemize}
+    \item Interest over time
+    \item cmake
+    \item using cmake
+    \item example
+    \item \texttt{cmake --build .}
+    \item \texttt{cmake\_minimum\_required}
+    \item \texttt{project}
+    \item \texttt{add\_subdirectory}
+    \item \texttt{find\_package}
+  \end{itemize}
+  % section cmake (end)
+
+  \section{High-Performance Motivation} % (fold)
+  \label{sec:high_performance_motivation}
+  \begin{itemize}
+    \item realistic environment
+    \item Moore's Law
+    \item more Cores
+    \item wider vector units
+    \item consequences for developers
+    \item outlook and history
+    \item xeon phi architecture
+    \item chip layout
+    \item core structure
+    \item hardware threads
+    \item cache organization
+    \item prefetching
+    \item vector processing units
+    \item performance metrics
+    \item reality of parallelization
+    \item example
+    \item amdahl's law
+    \item conclusion
+  \end{itemize}
+  % section high_performance_motivation (end)
+
+  \section{sofware testing} % (fold)
+  \label{sec:sofware_testing}
+  \begin{itemize}
+    \item what is software testing
+    \item why test software
+    \item testing levels: unit tests, integration tests
+  \end{itemize}
+  \subsection{testing tools} % (fold)
+  \label{sub:testing_tools}
+  \begin{itemize}
+    \item unit testing with cmake
+    \item continuous integration (CI) using gitlab or github
+    \item catch - test driven development in c++: key-features, examples, basics, catch-sections, bdd-style test cases
+  \end{itemize}
+  % subsection testing_tools (end)
+  \subsection{what makes good unit tests} % (fold)
+  \label{sub:what_makes_good_unit_tests}
+  \begin{itemize}
+    \item Step 0 - write tests
+    \item properties
+    \item correctness
+    \item readability
+    \item completeness
+    \item demonstrability
+    \item resiliance: ordering, nonhermeticity, deep dependence
+    \item recap: what is the goal?
+  \end{itemize}
+  % subsection what_makes_good_unit_tests (end)
+  % section sofware_testing (end)
+
+  \section{Caches} % (fold)
+  \label{sec:caches}
+  \begin{itemize}
+    \item cache structure
+    \item cache attached to core
+    \item cache lines
+    \item cache miss
+    \item intel xeon phi cache
+    \item example
+    \item writing to cache
+    \item example
+    \item communication
+    \item cache coherency
+    \item false sharing
+    \item example
+    \item scaling
+    \item how to avoid false sharing
+    \item summary
+  \end{itemize}
+  % section caches (end)
+
+  \section{Parallelism} % (fold)
+  \label{sec:parallelism}
+  \begin{itemize}
+    \item multiple levels of parallelism
+    \item vectorization
+    \item current vectorization hardware
+    \item vector registers
+    \item history
+    \item why vectorization
+    \item compile will do?
+    \item how do we vectorize?
+    \item intrinsics review and do it yourself
+    \item steps to vectorization
+    \item vector-loop requirements
+    \item how to think of auto-vectorization
+    \item how to instruct the compiler
+    \item challenge: loop dependencies: read after write, write after read
+    \item aliasing
+    \item aliasing and compilers
+    \item resolving dependencies
+    \item example
+    \item caches and alignment
+    \item alignment for vectorization
+    \item alignment on 512-bit wide registers
+    \item how to align: tell the compiler about it
+    \item what happens without alignment
+    \item alignment - multi-dimensional data structures
+    \item padding
+    \item strided access
+    \item streaming stores
+    \item example
+    \item structure-of-arrays versus array-of-structures
+    \item cache-blocking
+    \item blocking-basics, blocking-principle, loop-splitting, loop-interchange
+    \item blocking versus non-blocking
+    \item example: matrix transposition
+    \item example: matrix multiplication
+    \item vectorization guidelines
+  \end{itemize}
+  % section parallelism (end)
+
+  \section{multiple levels of parallelism} % (fold)
+  \label{sec:multiple_levels_of_parallelism}
+  \begin{itemize}
+    \item dot product sequential
+    \item dot product vectorized
+    \item dot product \texttt{std::thread}
+    \item dot product OpenMP
+  \end{itemize}
+  \subsection{OpenMP} % (fold)
+  \label{sub:openmp}
+  \begin{itemize}
+    \item history
+    \item OpenMP
+    \item OpenMP-Process
+    \item basics
+    \item library
+    \item example: hello world
+    \item execution model
+    \item communication
+    \item parallel directive
+    \item how many threads
+    \item work-sharing, for-directive
+    \item example: for-directive
+    \item sections-directive, example
+    \item single-directive, example
+    \item synchronization, example
+    \item critical-directive, example
+    \item what does critical do internally
+    \item atomic-directive, example
+    \item tasking: concept, directive, clauses, example
+    \item when do tasks get executed
+    \item taskyield directive
+    \item openmp environment
+  \end{itemize}
+  % subsection openmp (end)
+  % section multiple_levels_of_parallelism (end)
+  \end{multicols}
+\end{document}
